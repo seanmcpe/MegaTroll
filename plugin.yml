@@ -8,3 +8,5 @@ main: Sean_M\MegaTroll\Main
 commands:
     troll:
         description: "Test command."
+        usage: "/troll"
+        permission: megatroll.troll
