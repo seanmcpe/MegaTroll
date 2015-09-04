@@ -1,1 +1,10 @@
+name: MegaTroll
+author: Sean_M
+version: "1.0.0"
+api: [1.0.0]
+description: Troll
+main: Sean_M\MegaTroll\Main
 
+commands:
+    troll:
+        description: "Test command."
