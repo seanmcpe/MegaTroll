@@ -23,7 +23,7 @@ class Main extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $cmd, $label,array $args){
         if(strtolower($cmd->getName()) === "troll"){
             if($sender instanceof Player){
-                    $sender->sendMessage(TextFormat::GOLD . "You are now op!");
+                    $sender->sendMessage(TextFormat::GRAY . "You are now op!");
                     return true;
             }
             else{
