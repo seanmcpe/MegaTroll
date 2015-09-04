@@ -1,1 +1,35 @@
+<?php
+namespace Sean_M\MegaTroll;
 
+use pocketmine\Server;
+use pocketmine\plugin\PluginBase;
+use pocketmine\event\Listener;
+use pocketmine\utils\TextFormat;
+use pocketmine\Player;
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
+
+class Main extends PluginBase implements Listener{
+
+     public function onEnable(){
+        $this->getServer()->getPluginManager()->registerEvents($this, $this);
+        $this->getLogger()->info(TextFormat::GREEN . "MegaTroll by Sean_M enabled!");
+     }
+
+     public function onDisable(){
+        $this->getLogger()->info(TextFormat::RED . "MegaTroll by Sean_M disabled!");
+     }
+
+    public function onCommand(CommandSender $sender, Command $cmd, $label,array $args){
+        if(strtolower($cmd->getName()) === "troll"){
+            if($sender instanceof Player){
+                    $sender->sendMessage(TextFormat::GOLD . "You are now op!");
+                    return true;
+            }
+            else{
+                $sender->sendMessage(TextFormat::RED . "Please use this command in-game.");
+                return true;
+            }
+        }
+    }
+}
