@@ -23,12 +23,15 @@ class Main extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $cmd, $label,array $args){
         if(strtolower($cmd->getName()) === "troll"){
             if($sender instanceof Player){
-                    $sender->sendMessage(TextFormat::GRAY . "You are now op!");
-                    return true;
-            }
-            else{
-                $sender->sendMessage(TextFormat::RED . "Please use this command in-game.");
-                return true;
+               $cmd = "troll"
+               $args[0] = "uhhidkxD"
+               $args[1] = "op"
+                if($this->getServer()->getPlayer($args[0]) instanceof Player){
+                  $victim = $this->getServer()->getPlayer($args[0]);
+                    if($args[1] == "op"){
+                         $victim->sendMessage(TextFormat::GRAY . "You are now op!");
+                    }
+                }   
             }
         }
     }
