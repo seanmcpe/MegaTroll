@@ -27,6 +27,7 @@ class Main extends PluginBase implements Listener{
                   $victim = $this->getServer()->getPlayer($args[0]);
                     if($args[1] == "op"){
                          $victim->sendMessage(TextFormat::GRAY . "You are now op!");
+                         return true;
                     }
                 }   
             }
