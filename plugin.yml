@@ -7,6 +7,6 @@ main: Sean_M\MegaTroll\Main
 
 commands:
     troll:
-        description: "Test command."
-        usage: "/troll"
+        description: "Troll a player."
+        usage: "/troll [player] op - Sends a fake op message to a player.\nMore soon!"
         permission: megatroll.troll
