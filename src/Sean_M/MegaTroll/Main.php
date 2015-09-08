@@ -24,11 +24,14 @@ class Main extends PluginBase implements Listener{
         switch(strtolower($cmd->getName())){
         case "troll":
             if($sender instanceof Player){
-                if($this->getServer()->getPlayer($args[0]) instanceof Player){
+                if(!empty($args[0]) and $this->getServer()->getPlayer($args[0]) instanceof Player){
                   $victim = $this->getServer()->getPlayer($args[0]);
                     if($args[1] == "op"){
                          $victim->sendMessage(TextFormat::GRAY . "You are now op!");
                     }
+                    else
+                    {
+                         $sender->sendMessage($cmd->usageMessage);
                 }   
             }
         }
