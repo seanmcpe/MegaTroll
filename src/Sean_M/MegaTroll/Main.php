@@ -31,11 +31,11 @@ class Main extends PluginBase implements Listener{
                     }
                     else
                     {
-                         $sender->sendMessage($cmd->usageMessage);
+                         $sender->sendMessage($cmd->getUsage);
                     }
                 }   
             }
-        }
         return true;
+        }
     }
 }
