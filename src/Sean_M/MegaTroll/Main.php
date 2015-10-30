@@ -21,18 +21,38 @@ class Main extends PluginBase implements Listener{
      }
 
     public function onCommand(CommandSender $sender, Command $cmd, $label,array $args){
-        switch(strtolower($cmd->getName())){
-        case "troll":
+        if(strtolower($command->getName('troll'))) {
             if($sender instanceof Player){
-                if(!empty($args[0]) and $this->getServer()->getPlayer($args[0]) instanceof Player){
-                  $victim = $this->getServer()->getPlayer($args[0]);
-                    if($args[1] == "op"){
+                 if($sender->hasPermission("troll.commands")){
+                if(!empty($args) and $this->getServer()->getPlayer($args[1]) instanceof Player){
+                  $victim = $this->getServer()->getPlayer($args[1]);
+                    if($args[0] == "op"){
                          $victim->sendMessage(TextFormat::GRAY . "You are now op!");
+                    }else{
+                         if($args[0] == 'say'){
+                              $message = $args[1];
+                              $this->getServer()->broadcastMessage($message);
+                              return true;
+                         }else{
+                          if($args[0] == 'tell'){
+                               $player = $args[1];
+                               if($player->isOnline()){
+                              $message = $args[2];
+                              $player->sendMessage($message);
+                              return true;    
+                         }else{
+                         $sender->sendMessage(TextFormat::RED."Player not online!");
+                         }
+                          }
+                         }
                     }
-                    else
-                    {
+                }else{
                          $sender->sendMessage($cmd->getUsage);
+                         return true;
                     }
+                }else{
+                     $sender->sendMessage(TextFormat::RED."You don't have permssions!");
+                     return true;
                 }   
             }
         return true;
